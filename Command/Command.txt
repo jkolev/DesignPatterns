@@ -1,0 +1,27 @@
+The command pattern is a behavioral design pattern in which an object is used to represent and encapsulate all the
+information needed to call a method at a later time.
+
+http://en.wikipedia.org/wiki/Command_pattern
+
+I really love this pattern! In general, the notion of encapsulating the method call into an object
+is an incredibly powerful idea, because is separate the idea of selecting what to invoke and when to invoke it.
+Basically, Command is extremely useful when you need to generate commands in one place and run them in another.
+
+Commands are used pretty much every where. If you're into .NET, WPF is probably the most obvious place, because it
+actually have the notion of Command as a base class that you are supposed to be using.
+
+Other variations, like encapsulating a bunch of code to be executed later (job / task), or just being able to isolate a
+complex behavior into its own object, is also very useful.
+
+I really think that you can decompose a system to a series of commands that you can compose and shuffle at will.
+
+Recommendation: Use it. Often.
+
+I really like this pattern, and it is a useful one quite often. The thing that you want to
+watch for are commands that are too granular. IncrementByOneCommand that is basically wrapping $var++ is probably
+too much, for example. Commands are supposed to be doing something meaningful from the scope of the entire application.
+
+Note: Most of the samples and tutorials about Command love to present it with the idea of Undo(). However, you should
+be careful with this one. In case you're implementing a text editor of something similar, you're good to go. However,
+as we're talking PHP, most likely you're working on a Web site, or on implementing a REST service, etc. Sooo, it is hard
+to imagine something like placeOrderCommand.undo() or sendMailCommand.undo() :)
