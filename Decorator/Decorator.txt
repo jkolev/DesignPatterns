@@ -1,0 +1,24 @@
+http://en.wikipedia.org/wiki/Decorator_pattern
+
+Intent
+
+- Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing
+    for extending functionality.
+- Client-specified embellishment of a core object by recursively wrapping it.
+- Wrapping a gift, putting it in a box, and wrapping the box.
+
+Problem
+
+- You want to add behavior or state to individual objects at run-time. Inheritance is not feasible because it is static
+    and applies to an entire class.
+
+The decorator pattern forms a core part of many critical function of your day to day software. If you're coming from .NET,
+the most obvious example is the notion of Stream, where you often decorate a stream (Buffered Stream, Compressing Stream, etc).
+This example is valid not just for the .NET framework, I can’t think of a single major framework that doesn’t use the
+Stream abstraction for its IO.
+
+Recommendation: It is a very useful pattern, and should be used when you actually have one input / output channel,
+because that is a great way to allow to dynamically compose the way we apply processing to it.
+
+One of the downsides however is,  when you add a new method to the decorated object, you now need to go and add that to
+all the decorating, etc. I don't like this sort of behavior.
